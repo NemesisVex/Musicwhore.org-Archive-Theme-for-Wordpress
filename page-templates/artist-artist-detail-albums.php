@@ -19,7 +19,7 @@ usort($artist->albums, function ($a, $b) {
 			<a href="/album/<?php echo $album->album_id; ?>/"><?php echo $album->album_title; ?></a>
 		</div>
 		<div class="album-list-meta">
-			&#8212; Format: <?php echo ucfirst($album->album_format); ?>
+			&#8212; Format: <?php echo ucfirst($album->album_format->format_alias); ?>
 			<?php if (!empty($album->album_release_date)): ?>| <?php echo date("Y-m-d", strtotime($album->album_release_date)); ?><?php endif; ?>
 		</div>
 	</li>
