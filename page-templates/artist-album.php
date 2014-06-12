@@ -20,7 +20,7 @@ if (!empty($filter)):
 <h4><?php echo $album->album_title; ?></h4>
 
 <ul>
-	<li>Format: <?php echo ucfirst($album->album_format); ?></li>
+	<li>Format: <?php echo ucfirst($album->album_format->format_alias); ?></li>
 	<li>Label: <?php echo $album->album_label; ?></li>
 	<li>Original release date: <?php echo date("Y-m-d", strtotime($album->album_release_date)); ?></li>
 </ul>

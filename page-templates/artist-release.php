@@ -3,16 +3,17 @@
 if (!empty($filter)):
 	$release = get_release($filter);
 	$artist = $release->album->artist;
-	
-	if (!empty($release->release_asin_num)):
-		$aws_item = get_release_from_amazon($release->release_asin_num, $release->release_country_name);
+
+	if (!empty($release->settings->asin_num)):
+		$aws_item = get_release_from_amazon($release->settings->asin_num, $release->release_country_name);
+
 		if (!empty($aws_item)):
 			$release->aws_item = $aws_item;
 			$release->tracks = Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
 			$cover = array( 'url' => (string) $release->aws_item->MediumImage->URL);
 		endif;
 	endif;
-	
+
 	if (!empty($release->tracks)):
 		$last_track_index = max(array_keys($release->tracks));
 		$num_of_discs = $release->tracks[$last_track_index]->track_disc_num;

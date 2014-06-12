@@ -3,7 +3,7 @@
 <?php if (!empty($artists)): ?>
 <ul>
 	<?php foreach ($artists as $a => $an_artist): ?>
-	<li><a href="/artist/<?php echo $an_artist->artist_id; ?>/"><?php echo (!empty($an_artist->artist_asian_name_utf8)) ? $an_artist->artist_asian_name_utf8 . ' (' . $an_artist->artist_display_name  . ')' : $an_artist->artist_display_name; ?></a></li>
+	<li><a href="/artist/<?php echo $an_artist->artist_id; ?>/"><?php echo musicwhorearchive_display_artist_name($an_artist) ?></a></li>
 	<?php endforeach; ?>
 </ul>
 <?php else: ?>
