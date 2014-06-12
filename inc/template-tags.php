@@ -199,7 +199,7 @@ function musicwhorearchive_post_thumbnail() {
 
 if (!function_exists('musicwhorearchive_display_artist_name')) {
 	function musicwhorearchive_display_artist_name ($artist) {
-		return !empty($artist->artist_asian_name_utf8) ? $artist->artist_asian_name_utf8 . ' (' . $artist->artist_display_name . ')' : $artist->artist_display_name;
+		return !empty($artist->artist_display_name) ? $artist->artist_display_name . ' (' . $artist->artist_name . ')' : $artist->artist_name;
 	}
 }
 
