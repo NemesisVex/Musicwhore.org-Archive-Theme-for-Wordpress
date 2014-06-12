@@ -13,7 +13,7 @@ if (!empty($filter)):
 			$cover = array( 'url' => (string) $release->aws_item->MediumImage->URL);
 		endif;
 	endif;
-	
+
 	if (!empty($release->tracks)):
 		$last_track_index = max(array_keys($release->tracks));
 		$num_of_discs = $release->tracks[$last_track_index]->track_disc_num;
