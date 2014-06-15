@@ -19,6 +19,29 @@ if (!empty($filter)):
 
 <h4><?php echo $album->album_title; ?></h4>
 
+<?php if (!empty($album->settings)): ?>
+<ul class="list-unstyled">
+	<?php
+	if (!empty($album->settings->soloist_id)):
+		$soloist = get_artist($album->settings->soloist_id);
+		?>
+		<li><?php echo $soloist->artist_name; ?></li>
+	<?php endif; ?>
+	<?php
+	if (!empty($album->settings->ensemble_id)):
+		$ensemble = get_artist($album->settings->ensemble_id);
+		?>
+		<li><?php echo $ensemble->artist_name; ?></li>
+	<?php endif; ?>
+	<?php
+	if (!empty($album->settings->conductor_id)):
+		$conductor = get_artist($album->settings->conductor_id);
+		?>
+		<li><?php echo $conductor->artist_name; ?></li>
+	<?php endif; ?>
+</ul>
+<?php endif; ?>
+
 <ul>
 	<li>Format: <?php echo ucfirst($album->album_format->format_alias); ?></li>
 	<li>Label: <?php echo $album->album_label; ?></li>
