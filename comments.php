@@ -82,7 +82,7 @@ if ( post_password_required() ) {
 		'class_form' => 'form-horizontal',
 		'class_submit' => 'btn btn-default',
 	);
-	comment_form($comment_args);
+	(function_exists( 'bootstrap_comment_form' ) === true ) ? bootstrap_comment_form($comment_args) : comment_form($comment_args);
 	?>
 
 </div><!-- #comments -->
