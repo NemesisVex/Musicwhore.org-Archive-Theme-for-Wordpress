@@ -11,7 +11,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 		// Page thumbnail and title.
-		musicwhorearchive_post_thumbnail();
 		the_title( '<header class="entry-header"><h2 class="entry-title">', '</h2></header><!-- .entry-header -->' );
 	?>
 

@@ -26,7 +26,7 @@ if (!empty($filter)):
 
 <h2>Artists</h2>
 
-<h3><?php echo musicwhorearchive_display_artist_name($artist); ?></h3>
+<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 
@@ -37,6 +37,29 @@ if (!empty($filter)):
 <?php endif; ?>
 
 <h4><?php echo $release->album->album_title; ?></h4>
+
+<?php if (!empty($release->album->settings)): ?>
+<ul class="list-unstyled">
+	<?php
+	if (!empty($release->album->settings->soloist_id)):
+		$soloist = get_artist($release->album->settings->soloist_id);
+		?>
+		<li><?php echo $soloist->artist_name; ?></li>
+	<?php endif; ?>
+	<?php
+	if (!empty($release->album->settings->ensemble_id)):
+		$ensemble = get_artist($release->album->settings->ensemble_id);
+	?>
+	<li><?php echo $ensemble->artist_name; ?></li>
+	<?php endif; ?>
+	<?php
+	if (!empty($release->album->settings->conductor_id)):
+		$conductor = get_artist($release->album->settings->conductor_id);
+		?>
+		<li><?php echo $conductor->artist_name; ?></li>
+	<?php endif; ?>
+</ul>
+<?php endif; ?>
 
 <ul>
 	<li>Catalog no.: <?php echo $release->release_catalog_num; ?></li>
