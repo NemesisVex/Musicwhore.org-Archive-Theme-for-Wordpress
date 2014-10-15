@@ -19,7 +19,7 @@ if (!empty($artist->classical)):
 endif;
 ?>
 
-<h3><?php echo musicwhorearchive_display_artist_name($artist); ?></h3>
+<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 
