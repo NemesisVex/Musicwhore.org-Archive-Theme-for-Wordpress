@@ -6,27 +6,17 @@
  * @subpackage MusicwhoreArchive
  * @since MusicwhoreArchive 1.0
  */
+?>
+<?php get_header(); ?>
 
-$module = get_query_var('module');
-
-get_header(); ?>
-
-<div id="main-content" class="main-content col-md-8">
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-			<?php
-			if (!empty($module)):
-				include(plugin_dir_path(__FILE__) . '/artist-' . $module . '.php');
-			else:
-				include(plugin_dir_path(__FILE__) . '/artist-artist.php');
-			endif;
-			?>
-		</div><!-- #content -->
-	</div><!-- #primary -->
-	<?php get_sidebar( 'content'); ?>
+<div class="col-md-8">
+	<?php $module = get_query_var('module'); ?>
+	<?php if (!empty($module)): ?>
+		<?php include(plugin_dir_path(__FILE__) . '/artist-' . $module . '.php'); ?>
+	<?php else: ?>
+		<?php include(plugin_dir_path(__FILE__) . '/artist-artist.php'); ?>
+	<?php endif; ?>
 </div><!-- #main-content -->
 
-<?php
-get_sidebar( 'musicwhorearchive' );
-get_footer();
+<?php get_sidebar(); ?>
+<?php get_footer();

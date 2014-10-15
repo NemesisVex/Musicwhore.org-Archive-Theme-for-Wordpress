@@ -3,7 +3,7 @@
 <?php if (!empty($artists)): ?>
 <ul>
 	<?php foreach ($artists as $a => $an_artist): ?>
-	<li><a href="/artist/<?php echo $an_artist->artist_id; ?>/"><?php echo musicwhorearchive_display_artist_name($an_artist) ?></a></li>
+	<li><a href="/artist/<?php echo $an_artist->artist_id; ?>/"><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($an_artist) ?></a></li>
 	<?php endforeach; ?>
 </ul>
 <?php else: ?>
