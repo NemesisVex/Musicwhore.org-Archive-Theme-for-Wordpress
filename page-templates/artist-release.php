@@ -20,7 +20,7 @@ if (!empty($filter)):
 	endif;
 	
 	if (empty($cover)):
-		$cover = musicwhorearchive_parse_release_image($release);
+		$cover = MusicwhoreArchive_Template_Tags::parse_release_image($release);
 	endif;
 ?>
 
