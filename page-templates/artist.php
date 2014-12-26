@@ -6,6 +6,9 @@
  * @subpackage MusicwhoreArchive
  * @since MusicwhoreArchive 1.0
  */
+
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
 ?>
 <?php get_header(); ?>
 

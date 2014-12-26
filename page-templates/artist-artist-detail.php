@@ -1,11 +1,13 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
 $artist_image = null;
 if (!empty($artist->artist_file_system)):
-	$artist_image = MusicwhoreArchive_Template_Tags::parse_artist_image($artist);
+	$artist_image = TemplateTags::parse_artist_image($artist);
 endif;
 ?>
 
-<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
+<h3><?php echo TemplateTags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 
@@ -15,7 +17,7 @@ if (!empty($artist->artist_biography)):
 <h4>Biography</h4>
 
 	<?php if (!empty($artist_image['url'])): ?>
-	<img src="<?php echo $artist_image['url']; ?>" align="right" alt="[<?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist) ; ?>]" title="[<?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?>]" />
+	<img src="<?php echo $artist_image['url']; ?>" align="right" alt="[<?php echo TemplateTags::display_artist_name($artist) ; ?>]" title="[<?php echo TemplateTags::display_artist_name($artist); ?>]" />
 	<?php endif; ?>
 
 	<?php echo wpautop($artist->artist_biography); ?>
@@ -26,7 +28,7 @@ if (!empty($artist->artist_biography)):
 <?php endif; ?>
 
 <?php
-$artist_entries = new WP_Query('post_type=post&meta_key=_mw_artist_id&meta_value=' . $filter . '&order=DESC');
+$artist_entries = new \WP_Query('post_type=post&meta_key=_mw_artist_id&meta_value=' . $filter . '&order=DESC');
 
 if (!empty($artist_entries->posts)):
 ?>

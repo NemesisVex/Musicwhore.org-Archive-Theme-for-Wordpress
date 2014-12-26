@@ -1,4 +1,5 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
 
 usort($artist->albums, function ($a, $b) {
 	return ($a->album_release_date == $b->album_release_date) ? 0 : ( $a->album_release_date > $b->album_release_date ? -1 : 1);
@@ -19,7 +20,7 @@ if (!empty($artist->classical)):
 endif;
 ?>
 
-<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
+<h3><?php echo TemplateTags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 

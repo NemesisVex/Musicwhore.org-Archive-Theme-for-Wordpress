@@ -6,7 +6,11 @@
  * Time: 11:16 PM
  */
 
-class MusicwhoreArchive_Yearly_Archive_Widget extends WP_Widget {
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive\Widgets;
+
+use VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
+class YearlyArchive extends \WP_Widget {
 
 	public function __construct() {
 		parent::__construct( 'widget_musicwhorearchive_yearly_archive', __( 'Archives (Yearly)', 'musicwhorearchive' ), array(

@@ -6,7 +6,11 @@
  * Time: 11:35 PM
  */
 
-class MusicwhoreArchive_Artist_List_Widget extends WP_Widget {
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive\Widgets;
+
+use VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
+class ArtistList extends \WP_Widget {
 	public function __construct() {
 		parent::__construct( 'widget_musicwhorearchive_artist_list', __( 'Artist List', 'musicwhorearchive' ), array(
 			'classname'   => 'widget_musicwhorearchive_artist_list',
