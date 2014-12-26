@@ -10,7 +10,7 @@ if (!empty($filter)):
 
 		if (!empty($aws_item)):
 			$release->aws_item = $aws_item;
-			$release->tracks = Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
+			$release->tracks = \Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
 			$cover = array( 'url' => (string) $release->aws_item->MediumImage->URL);
 		endif;
 	endif;
