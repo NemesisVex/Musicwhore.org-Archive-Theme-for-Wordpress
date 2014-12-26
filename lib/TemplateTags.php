@@ -6,7 +6,9 @@
  * Time: 10:50 PM
  */
 
-class MusicwhoreArchive_Template_Tags {
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
+class TemplateTags {
 
 	public static function display_artist_name ( $artist ) {
 		return !empty($artist->artist_display_name) ? $artist->artist_display_name . ' (' . $artist->artist_name . ')' : $artist->artist_name;
@@ -28,7 +30,7 @@ class MusicwhoreArchive_Template_Tags {
 			$artist = $album->artist;
 		}
 
-		return MusicwhoreArchive_Template_Tags::parse_discog_image($album->album_image, $artist->artist_file_system);
+		return TemplateTags::parse_discog_image($album->album_image, $artist->artist_file_system);
 	}
 
 
@@ -52,7 +54,7 @@ class MusicwhoreArchive_Template_Tags {
 			$artist = $release->album->artist;
 		}
 
-		return MusicwhoreArchive_Template_Tags::parse_discog_image($release->release_image, $artist->artist_file_system);
+		return TemplateTags::parse_discog_image($release->release_image, $artist->artist_file_system);
 	}
 
 }

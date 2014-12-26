@@ -1,4 +1,5 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
 
 if (!empty($filter)):
 	$release = get_release($filter);
@@ -20,13 +21,13 @@ if (!empty($filter)):
 	endif;
 	
 	if (empty($cover)):
-		$cover = MusicwhoreArchive_Template_Tags::parse_release_image($release);
+		$cover = TemplateTags::parse_release_image($release);
 	endif;
 ?>
 
 <h2>Artists</h2>
 
-<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
+<h3><?php echo TemplateTags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 
