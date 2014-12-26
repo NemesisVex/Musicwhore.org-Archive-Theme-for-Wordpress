@@ -1,4 +1,7 @@
-<?php if (!empty($artist->settings)): ?>
+<?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
+if (!empty($artist->settings)): ?>
 <ul class="list-inline">
 	<li><a href="/artist/<?php echo $artist->artist_id; ?>/">Profile</a></li>
 	<?php if ($artist->settings->nav_profile == true):?><li><a href="/artist/bio/<?php echo $artist->artist_id; ?>/">Biography</a></li><?php endif; ?>

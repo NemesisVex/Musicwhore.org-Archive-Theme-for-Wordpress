@@ -1,4 +1,5 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
 
 if (!empty($filter)):
 	$release = get_release($filter);
@@ -7,9 +8,9 @@ if (!empty($filter)):
 	if (!empty($release->settings->asin_num)):
 		$aws_item = get_release_from_amazon($release->settings->asin_num, $release->release_country_name);
 
-		if (!empty($aws_item)):
+		if (!empty($aws_item) && class_exists( '\Musicwhore_Track') ):
 			$release->aws_item = $aws_item;
-			$release->tracks = Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
+			$release->tracks = \Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
 			$cover = array( 'url' => (string) $release->aws_item->MediumImage->URL);
 		endif;
 	endif;
@@ -20,13 +21,13 @@ if (!empty($filter)):
 	endif;
 	
 	if (empty($cover)):
-		$cover = MusicwhoreArchive_Template_Tags::parse_release_image($release);
+		$cover = TemplateTags::parse_release_image($release);
 	endif;
 ?>
 
 <h2>Artists</h2>
 
-<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
+<h3><?php echo TemplateTags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 

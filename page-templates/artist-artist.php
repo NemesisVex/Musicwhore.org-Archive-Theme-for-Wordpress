@@ -1,4 +1,5 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
 
 $filter = get_query_var('filter');
 $browse = get_query_var('browse');

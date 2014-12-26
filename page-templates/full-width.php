@@ -7,6 +7,8 @@
  * @since MusicwhoreArchive 1.0
  */
 
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
 get_header(); ?>
 
 <div id="main-content" class="main-content">

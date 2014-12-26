@@ -6,6 +6,9 @@
  * @subpackage MusicwhoreArchive
  * @since MusicwhoreArchive 1.0
  */
+
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

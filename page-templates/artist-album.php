@@ -1,13 +1,15 @@
 <?php
+namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
+
 if (!empty($filter)):
 	$album = get_album($filter);
 	$artist = $album->artist;
-	$cover = MusicwhoreArchive_Template_Tags::parse_album_image($album);
+	$cover = TemplateTags::parse_album_image($album);
 ?>
 
 <h2>Artists</h2>
 
-<h3><?php echo MusicwhoreArchive_Template_Tags::display_artist_name($artist); ?></h3>
+<h3><?php echo TemplateTags::display_artist_name($artist); ?></h3>
 
 <?php include(plugin_dir_path(__FILE__) . 'artist-artist-detail-nav.php'); ?>
 
@@ -69,7 +71,7 @@ if (!empty($filter)):
 <?php endif;?>
 
 <?php
-$album_entries = new WP_Query('post_type=post&meta_key=_mw_album_id&meta_value=' . $filter . '&order=DESC');
+$album_entries = new \WP_Query('post_type=post&meta_key=_mw_album_id&meta_value=' . $filter . '&order=DESC');
 if ($album_entries->have_posts()):
 ?>
 <h5>Posts</h5>
