@@ -1,6 +1,8 @@
 <?php
 namespace VigilantMedia\WordPress\Themes\MusicwhoreArchive;
 
+use VigilantMedia\WordPress\Plugins\MusicwhoreOrg\ArtistConnector\Models\Track;
+
 if (!empty($filter)):
 	$release = get_release($filter);
 	$artist = $release->album->artist;
@@ -8,9 +10,9 @@ if (!empty($filter)):
 	if (!empty($release->settings->asin_num)):
 		$aws_item = get_release_from_amazon($release->settings->asin_num, $release->release_country_name);
 
-		if (!empty($aws_item) && class_exists( '\Musicwhore_Track') ):
+		if (!empty($aws_item) && class_exists( 'VigilantMedia\WordPress\Plugins\MusicwhoreOrg\ArtistConnector\Models\Track') ):
 			$release->aws_item = $aws_item;
-			$release->tracks = \Musicwhore_Track::parse_aws_tracks($aws_item->Tracks);
+			$release->tracks = Track::parseAwsTracks( $aws_item->Tracks );
 			$cover = array( 'url' => (string) $release->aws_item->MediumImage->URL);
 		endif;
 	endif;
